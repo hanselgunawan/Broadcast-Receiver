@@ -4,13 +4,15 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
+import android.util.Log
 import android.widget.Toast
 
 class MyBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        if (Intent.ACTION_BOOT_COMPLETED == intent?.action) {
+        if (intent?.action == Intent.ACTION_BOOT_COMPLETED) {
             Toast.makeText(context, "Boot Completed!", Toast.LENGTH_LONG).show()
+            Log.d("HANSELA", "HAHAHAHA")
         }
 
         if (ConnectivityManager.CONNECTIVITY_ACTION == intent?.action) {
