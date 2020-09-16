@@ -10,13 +10,16 @@ import android.widget.Toast
 class MyBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        if (intent?.action == Intent.ACTION_BOOT_COMPLETED) {
-            Toast.makeText(context, "Boot Completed!", Toast.LENGTH_LONG).show()
-            Log.d("HANSELA", "HAHAHAHA")
-        }
-
         if (ConnectivityManager.CONNECTIVITY_ACTION == intent?.action) {
-            Toast.makeText(context, "Connectivity Changed!", Toast.LENGTH_SHORT).show()
+            val noConnectivity: Boolean = intent.getBooleanExtra(
+                ConnectivityManager.EXTRA_NO_CONNECTIVITY, false
+            )
+
+            if (noConnectivity) {
+                Toast.makeText(context, "Disconnected", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Connected", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
