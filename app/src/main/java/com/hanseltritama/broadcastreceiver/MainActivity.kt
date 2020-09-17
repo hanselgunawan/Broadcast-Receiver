@@ -1,7 +1,7 @@
 package com.hanseltritama.broadcastreceiver
 
+import android.Manifest
 import android.content.IntentFilter
-import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val intentFilter = IntentFilter("com.hanseltritama.MY_ACTION")
         intentFilter.priority = 1
-        registerReceiver(orderedReceiver1, intentFilter)
+        registerReceiver(orderedReceiver1, intentFilter, Manifest.permission.VIBRATE, null)
     }
 
     override fun onDestroy() {
