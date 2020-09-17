@@ -12,18 +12,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
-
-    // when app is on the foreground
-    override fun onStart() {
-        super.onStart()
-        val intent: IntentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        val intent: IntentFilter = IntentFilter("com.hanseltritama.MY_ACTION")
         registerReceiver(myBroadcastReceiver, intent)
     }
 
-    // when app is on the background
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroy() {
+        super.onDestroy()
         unregisterReceiver(myBroadcastReceiver)
     }
 }
