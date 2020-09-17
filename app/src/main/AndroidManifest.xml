@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hanseltritama.broadcastreceiver">
 
+    <permission android:name="com.hanseltritama.CUSTOM_PERMISSION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,12 +20,14 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".OrderedReceiver2">
+        <receiver android:name=".OrderedReceiver2"
+            android:permission="android.permission.INTERNET">
             <intent-filter android:priority="2">
                 <action android:name="com.hanseltritama.MY_ACTION" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".OrderedReceiver3">
+        <receiver android:name=".OrderedReceiver3"
+            android:permission="com.hanseltritama.CUSTOM_PERMISSION">
             <intent-filter android:priority="3">
                 <action android:name="com.hanseltritama.MY_ACTION" />
             </intent-filter>
