@@ -10,10 +10,7 @@ import android.widget.Toast
 class MyBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        if ("com.hanseltritama.MY_ACTION" == intent?.action) {
-            val receivedText: String = intent.getStringExtra("com.hanseltritama.MY_TEXT")
-            Toast.makeText(context, receivedText, Toast.LENGTH_SHORT).show()
-        }
+        Toast.makeText(context, "EBR Triggered", Toast.LENGTH_SHORT).show()
     }
 
 }
