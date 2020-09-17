@@ -7,10 +7,10 @@ import android.net.ConnectivityManager
 import android.util.Log
 import android.widget.Toast
 
-class MyBroadcastReceiver : BroadcastReceiver() {
+class OrderedReceiver2 : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        Toast.makeText(context, "EBR Triggered", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "OR2 Triggered", Toast.LENGTH_SHORT).show()
     }
 
 }
