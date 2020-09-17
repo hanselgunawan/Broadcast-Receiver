@@ -17,9 +17,13 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".MyBroadcastReceiver"
-            android:exported="true">
-            <intent-filter>
+        <receiver android:name=".OrderedReceiver2">
+            <intent-filter android:priority="2">
+                <action android:name="com.hanseltritama.MY_ACTION" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".OrderedReceiver3">
+            <intent-filter android:priority="3">
                 <action android:name="com.hanseltritama.MY_ACTION" />
             </intent-filter>
         </receiver>
