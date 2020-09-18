@@ -11,6 +11,20 @@ Put all receivers on `AndroidManifest.xml` file.
     </intent-filter>
 </receiver>
 ```
+Execute it on `MyBroadcastReceiver.kt` file.
+```
+class MyBroadcastReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context?, intent: Intent?) {
+        if (intent?.action == Intent.ACTION_BOOT_COMPLETED) {
+            Toast.makeText(context, "Boot Completed!", Toast.LENGTH_LONG).show()
+        }
+
+        if (ConnectivityManager.CONNECTIVITY_ACTION == intent?.action) {
+            Toast.makeText(context, "Connectivity Changed!", Toast.LENGTH_SHORT).show()
+        }
+    }
+}
+```
 
 ## Dynamic Receiver (branch: `dynamic-receiver`)
 Put receiver on `Activity` or `Fragment` lifecycle.
