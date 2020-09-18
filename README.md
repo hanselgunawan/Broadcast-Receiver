@@ -1,7 +1,7 @@
 # Broadcast Receiver
 
 ## Static Receiver (branch: `static-receiver`)
-Put all receivers on `AndroidManifest.xml` file
+Put all receivers on `AndroidManifest.xml` file.
 ```
 <receiver android:name=".MyBroadcastReceiver" android:enabled="true" android:exported="true">
     <intent-filter>
@@ -13,7 +13,7 @@ Put all receivers on `AndroidManifest.xml` file
 ```
 
 ## Dynamic Receiver (branch: `dynamic-receiver`)
-Put receiver on `Activity` or `Fragment` lifecycle
+Put receiver on `Activity` or `Fragment` lifecycle.
 ```
 // when app is on the foreground
 override fun onStart() {
@@ -35,7 +35,7 @@ It’s important to unregister your `BroadcastReceiver` in the right cycle. For 
 * If you register it on `onCreate()`, unregister it on `onDestroy()`
 
 ## Custom Broadcast (branch: `custom-broadcast`)
-Customize your own broadcast `intent filter` and `action`
+Customize your own broadcast `intent filter` and `action`.
 * Add `BroadcastReceiver` file to the receiver:
 ```
 class MyBroadcastReceiver : BroadcastReceiver() {
@@ -48,7 +48,7 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 
 }
 ```
-* Register it on the `Activity` or `Fragment`
+* Register it on the `Activity` or `Fragment`.
 ```
 class MainActivity : AppCompatActivity() {
 
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 ```
-* Send it on the [sender file](https://github.com/hanselgunawan/BroadcastSender)
+* Request it on the [sender file](https://github.com/hanselgunawan/BroadcastSender).
   
 ### 1st Approach
 ```
@@ -136,7 +136,7 @@ override fun onDestroy() {
 ```
 It will be executed from the highest to lowest priority number.
 ## Broadcast Permissions (branch: `broadcast-permission`)
-Add permissions on `<receiver>` tag on `AndroidManifest.xml`
+Add permissions on `<receiver>` tag on `AndroidManifest.xml`.
 ```
 <receiver android:name=".OrderedReceiver2"
     android:permission="android.permission.INTERNET">
@@ -151,13 +151,13 @@ Add permissions on `<receiver>` tag on `AndroidManifest.xml`
     </intent-filter>
 </receiver>
 ```
-Add `uses-permission` on sender's `AndroidManifest.xml` file
+Add `uses-permission` on sender's `AndroidManifest.xml` file.
 ```
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="com.hanseltritama.CUSTOM_PERMISSION" />
 ```
 ## goAsync() (branch: `go-async`)
-This is used to run a heavy work calculation inside the receiver
+This is used to run a heavy work calculation inside the receiver.
 ```
 override fun onReceive(context: Context?, intent: Intent?) {
     val pendingResult: PendingResult = goAsync()
